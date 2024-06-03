@@ -16,13 +16,17 @@ static int checkinput(int argc, char *argv[]);
 
 void    push_swap(int argc, char *argv[])
 {
-    if (argc == 1)
+    int     i;
+
+    if (argc == 1 || argc == 2)
         return ;
-    if (checkinput(argc, argv) == 0)
+    if (checkinput(argc, argv) == 0) //error handling for ft_printf?
         {
         ft_printf("Error\n");
         return ;
         }
+    i = 1;
+    swap_algo(argc, argv);
 }
 
 static int checkinput(int argc, char *argv[])
