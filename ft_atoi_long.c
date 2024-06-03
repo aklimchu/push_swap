@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 static const char	*whites(const char *str)
 {
 	while ((*str == 32) || (*str > 8 && *str < 14))

@@ -6,7 +6,7 @@
 #    By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 11:18:05 by aklimchu          #+#    #+#              #
-#    Updated: 2024/05/31 13:40:20 by aklimchu         ###   ########.fr        #
+#    Updated: 2024/06/03 12:59:46 by aklimchu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,10 @@ AR			= ar rcs
 RM			= rm -f
 
 # Source / OBJ files / Includes
-SRC 		= push_swap.c ft_atoi_long.c
+SRC 		= push_swap.c ft_atoi_long.c \
+				swap_algo.c swap_utils.c
 OBJ 		= $(SRC:.c=.o)
-INCLUDE		= push_swap.h
+INCLUDE		= push_swap.h 
 
 # Rules
 all:		$(NAME)
@@ -31,7 +32,7 @@ all:		$(NAME)
 	$(CC) $(CFLAGS) $^ -c -o $@ -I $(INCLUDE)
 
 $(NAME):	$(OBJ)
-	@make -C $(LIBFT_DIR)		# make libft
+	@make bonus -C $(LIBFT_DIR)		# make libft
 	@cp $(LIBFT_LIB) $(NAME)	# copy libft to current
 	$(AR) $(NAME) $(OBJ)		# add ft_printf.o to libftpush_swap.a
 
