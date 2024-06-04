@@ -6,7 +6,7 @@
 #    By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 11:18:05 by aklimchu          #+#    #+#              #
-#    Updated: 2024/06/03 12:59:46 by aklimchu         ###   ########.fr        #
+#    Updated: 2024/06/04 08:26:24 by aklimchu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ clean:
 	@make clean -C $(LIBFT_DIR)
 
 fclean:		clean 
-	$(RM) $(NAME) $(LIBFT_LIB)
+	$(RM) $(NAME) $(LIBFT_LIB) $(LIBFT_DIR)/.bonus
 
 re: 		fclean all
 

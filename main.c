@@ -2,5 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-    push_swap(argc, argv);
+    if (push_swap(argc, argv) == -1)
+        return (-1);
+    return(0);
 }
