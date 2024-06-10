@@ -6,7 +6,7 @@
 #    By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 11:18:05 by aklimchu          #+#    #+#              #
-#    Updated: 2024/06/04 08:26:24 by aklimchu         ###   ########.fr        #
+#    Updated: 2024/06/10 15:13:18 by aklimchu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ RM			= rm -f
 
 # Source / OBJ files / Includes
 SRC 		= push_swap.c ft_atoi_long.c \
-				swap_algo.c swap_utils.c
+				swap_algo.c swap_utils.c \
+				swap_utils_2.c lst_utils.c \
+				swap_small.c
 OBJ 		= $(SRC:.c=.o)
 INCLUDE		= push_swap.h 
 

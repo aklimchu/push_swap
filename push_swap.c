@@ -19,12 +19,13 @@ int    push_swap(int argc, char *argv[])
     int     i;
 
     if (argc < 3)
-        return(-1);
+        exit(0);
     if (checkinput(argc, argv) == 0)
         return(ft_printf("Error\n"));
     i = 1;
-    if (swap_algo(argc, argv) == -1)            // freeing memory, checking for leaks?
-        return (ft_printf("Error during memory allocation"));
+    swap_algo(argc, argv);
+    //if (swap_algo(argc, argv) == -1)            // freeing memory, checking for leaks?
+    //    return (ft_printf("Error during memory allocation"));
     return(0);
 }
 
@@ -66,11 +67,11 @@ static int checkinput(int argc, char *argv[])
     return(1);
 }
 
-/*t_list	*ft_lstnew_int(int content)
+/*t_int	*ft_lstnew_int(int content)
 {
-	t_list	*new;
+	t_int	*new;
 
-	new = (t_list *)malloc(sizeof(*new));
+	new = (t_int *)malloc(sizeof(*new));
 	if (new == NULL)
 		return ((void *) 0);
 	new->content = content;
