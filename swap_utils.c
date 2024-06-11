@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:45:50 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/10 14:52:28 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/11 13:02:48 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,27 @@ void push_b(t_int **lst1, t_int **lst2)
     t_int  *temp2;
     t_int  *temp3;
     
-    if (ft_lstsize_int(*lst2) == 0)
+    if (ft_lstsize_int(*lst1) == 0)
         return ;
-    temp1 = ft_lstnew_int((*lst2)->content);
+    temp1 = ft_lstnew_int((*lst1)->content);
     if (temp1 == NULL)
         exit(0);    // freeing the stacks before exiting
-    ft_lstadd_front_int(lst1, temp1);
-    temp2 = *lst2;
-    temp3 = (*lst2)->next;
+    ft_lstadd_front_int(lst2, temp1);
+    temp2 = *lst1;
+    temp3 = (*lst1)->next;
     free(temp2);
     //free(temp2->content);
-    *lst2 = temp3;
+    *lst1 = temp3;
     ft_printf("pb\n");
+}
+
+int a_is_sorted(t_int *lst)
+{
+    while (lst->next)
+    {
+        if (lst->content > lst->next->content)
+            return(-1);
+        lst = lst->next;
+    }
+    return(0);
 }
