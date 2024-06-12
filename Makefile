@@ -6,7 +6,7 @@
 #    By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 11:18:05 by aklimchu          #+#    #+#              #
-#    Updated: 2024/06/11 14:05:22 by aklimchu         ###   ########.fr        #
+#    Updated: 2024/06/12 12:17:10 by aklimchu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC 		= push_swap.c ft_atoi_long.c \
 				swap_algo.c swap_utils.c \
 				swap_utils_2.c lst_utils.c \
 				swap_small.c main.c \
-				set_index.c
+				set_index.c swap_5.c
 OBJ 		= $(SRC:.c=.o)
 INCLUDE		= push_swap.h
 

@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:45:50 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/11 13:02:48 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:59:07 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void push_a(t_int **lst1, t_int **lst2)
     
     if (ft_lstsize_int(*lst2) == 0)
         return ;
-    temp1 = ft_lstnew_int((*lst2)->content);
+    temp1 = ft_lstnew_int((*lst2)->content, (*lst2)->index);
     if (temp1 == NULL)
         exit(0);    // freeing the stacks before exiting
     ft_lstadd_front_int(lst1, temp1);
@@ -70,7 +70,7 @@ void push_b(t_int **lst1, t_int **lst2)
     
     if (ft_lstsize_int(*lst1) == 0)
         return ;
-    temp1 = ft_lstnew_int((*lst1)->content);
+    temp1 = ft_lstnew_int((*lst1)->content, (*lst1)->index);
     if (temp1 == NULL)
         exit(0);    // freeing the stacks before exiting
     ft_lstadd_front_int(lst2, temp1);
