@@ -6,13 +6,13 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:40:03 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/10 14:00:47 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:56:11 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_int	*ft_lstnew_int(int content)
+t_int	*ft_lstnew_int(int content, int index)
 {
     t_int	*new;
 
@@ -20,6 +20,7 @@ t_int	*ft_lstnew_int(int content)
     if (new == NULL)
 	    return ((void *) 0);
     new->content = content;
+	new->index = index;
     new->next = NULL;
     return (new);
 }

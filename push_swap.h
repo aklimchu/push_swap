@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:38:54 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/11 13:52:37 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:54:02 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	        rotate_a(t_int **lst);
 int        rotate_b(t_int **lst);
 int	        r_rotate_a(t_int **lst);
 int	        r_rotate_b(t_int **lst);
-t_int		*ft_lstnew_int(int content);
+t_int		*ft_lstnew_int(int content, int index);
 void	    ft_lstadd_front_int(t_int **lst, t_int *new);
 t_int	    *ft_lstlast_int(t_int *lst);
 int         ft_lstsize_int(t_int *lst);
@@ -44,6 +44,7 @@ void		algo_3(t_int **lst);
 void    	algo_4(t_int **lst1, t_int **lst2);
 void	    algo_5(t_int **lst1, t_int **lst2);
 int			a_is_sorted(t_int *lst);
-void		set_index(t_int **lst, int argc);
+void		set_index(t_int **lst);
+int			get_min(t_int *lst);
 
 #endif /* PUSH_SWAP_H */

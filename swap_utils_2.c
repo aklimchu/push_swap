@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:13:22 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/10 14:51:39 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:56:38 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int rotate_a(t_int **lst)
     
     if (ft_lstsize_int(*lst) == 0)
         return (-2);
-    temp1 = ft_lstnew_int((*lst)->content);
+    temp1 = ft_lstnew_int((*lst)->content, (*lst)->index);
     if (temp1 == NULL)
         return(-1);    // freeing the stacks
     ft_lstadd_back_int(lst, temp1);
@@ -39,7 +39,7 @@ int rotate_b(t_int **lst)
     
     if (ft_lstsize_int(*lst) == 0)
         return (-2);
-    temp1 = ft_lstnew_int((*lst)->content);
+    temp1 = ft_lstnew_int((*lst)->content, (*lst)->index);
     if (temp1 == NULL)
         return(-1);    // freeing the stacks
     ft_lstadd_back_int(lst, temp1);
@@ -58,7 +58,7 @@ int r_rotate_a(t_int **lst)
     if (ft_lstsize_int(*lst) == 0)
         return (-2);
     temp1 = ft_lstlast_int(*lst);
-    temp2 = ft_lstnew_int(temp1->content);
+    temp2 = ft_lstnew_int(temp1->content, temp1->index);
     if (temp2 == NULL)
         return(-1);    // freeing the stacks
     ft_lstadd_front_int(lst, temp2);
@@ -75,7 +75,7 @@ int r_rotate_b(t_int **lst)
     if (ft_lstsize_int(*lst) == 0)
         return (-2);
     temp1 = ft_lstlast_int(*lst);
-    temp2 = ft_lstnew_int(temp1->content);
+    temp2 = ft_lstnew_int(temp1->content, temp1->index);
     if (temp2 == NULL)
         return(-1);    // freeing the stacks
     ft_lstadd_front_int(lst, temp2);
