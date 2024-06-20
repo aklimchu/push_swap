@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: aklimchu <aklimchu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:38:27 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/12 15:01:16 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/20 14:34:38 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void    swap_algo(int argc, char  *argv[])
     t_int   *stack_a;
     t_int   *stack_b;
     t_int   *new;
-    t_int   *temp;  // delete
+    //t_int   *temp;  // delete
     int     i;
     int     new_num;
 
@@ -37,7 +37,7 @@ void    swap_algo(int argc, char  *argv[])
     }
     if (a_is_sorted(stack_a) == 0)
         exit(0);    //  freeing the memory
-    set_index(&stack_a);
+    set_simple(&stack_a);
     if (argc == 3)
         algo_2(&stack_a);
     if (argc == 4)
@@ -46,11 +46,13 @@ void    swap_algo(int argc, char  *argv[])
         algo_4(&stack_a, &stack_b);
     if (argc == 6)
         algo_5(&stack_a, &stack_b);
-    temp = stack_a;
-    ft_printf("Stack a - indexes\n");
+    if (argc >= 7)
+        algo_large(&stack_a, &stack_b);
+    /*temp = stack_a;
+    ft_printf("Stack a - simplees\n");
     while (temp)
     {
-        ft_printf("%d\n", temp->index);
+        ft_printf("%d\n", temp->simple);
         temp = temp->next;
     }
     ft_printf("Stack a\n");
@@ -64,7 +66,7 @@ void    swap_algo(int argc, char  *argv[])
     {
         ft_printf("%d\n", stack_b->content);
         stack_b = stack_b->next;
-    }
+    }*/
     free(stack_a);
     free(stack_b);
 }

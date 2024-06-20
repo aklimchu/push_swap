@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+         #
+#    By: aklimchu <aklimchu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 11:18:05 by aklimchu          #+#    #+#              #
-#    Updated: 2024/06/12 12:17:10 by aklimchu         ###   ########.fr        #
+#    Updated: 2024/06/20 13:51:11 by aklimchu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,15 +24,16 @@ SRC 		= push_swap.c ft_atoi_long.c \
 				swap_algo.c swap_utils.c \
 				swap_utils_2.c lst_utils.c \
 				swap_small.c main.c \
-				set_index.c swap_5.c
+				set_simple.c swap_5.c \
+				swap_large.c
 OBJ 		= $(SRC:.c=.o)
-INCLUDE		= push_swap.h
+INCLUDE		= -I "./"
 
 # Rules
 all:		$(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) $^ -c -o $@ -I $(INCLUDE)
+%.o: %.c 
+	$(CC) $(CFLAGS) $(INCLUDE) $^ -c -o $@
 
 $(NAME):	$(OBJ)
 	@make -C $(LIBFT_DIR)		# make libft
