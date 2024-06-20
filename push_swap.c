@@ -14,17 +14,22 @@
 
 static int checkinput(int argc, char *argv[]);
 
+static int checknum(char *str);
+
 int    push_swap(int argc, char *argv[])
 {
-    int     i;
-
+    // Should the program be able to take 1 string as an argument?
     //if (argc < 2)
     //    exit(0);
+    //if (argc == 2)
+
     if (checkinput(argc, argv) == 0)
-        return(ft_printf("Error\n"));
+    {
+        write(2, "Error\n", 6);
+        exit(0);
+    }
     if (argc < 3)
         exit(0);
-    i = 1;
     swap_algo(argc, argv);
     //if (swap_algo(argc, argv) == -1)            // freeing memory, checking for leaks?
     //    return (ft_printf("Error during memory allocation"));
@@ -37,21 +42,11 @@ static int checkinput(int argc, char *argv[])
     int     j;
 
     i = 1;
-    j = 0;
     while (i < argc)
     {
-        if (argv[i][0] == '-')
-            j++;
-        while (argv[i][j] != '\0')
-        {
-            if (ft_isdigit(argv[i][j]) == 0)
-                return(0);
-            j++;
-        }
-        if (ft_atoi_long(argv[i]) > INT_MAX || ft_atoi_long(argv[i]) < INT_MIN)  // overflow for long int?
+        if (checknum(argv[i]) == 0)
             return(0);
         i++;
-        j = 0;
     }
     i = 1;
     j = 2;
@@ -66,5 +61,25 @@ static int checkinput(int argc, char *argv[])
         i++;
         j = 2;
     }
+    return(1);
+}
+
+static int checknum(char *str)
+{
+    int     j;
+
+    j = 0;    
+    if (str[0] == '-')
+        j++;
+    if (str[j] == '\0')
+        return(0);
+    while (str[j] != '\0')
+    {
+        if (ft_isdigit(str[j]) == 0)
+            return(0);
+        j++;
+    }
+    if (ft_atoi_long(str) > INT_MAX || ft_atoi_long(str) < INT_MIN)  // overflow for long int?
+        return(0);
     return(1);
 }

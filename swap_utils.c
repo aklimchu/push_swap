@@ -50,7 +50,7 @@ void push_a(t_int **lst1, t_int **lst2)
     
     if (ft_lstsize_int(*lst2) == 0)
         return ;
-    temp1 = ft_lstnew_int((*lst2)->content, (*lst2)->index);
+    temp1 = ft_lstnew_int((*lst2)->content, (*lst2)->simple);
     if (temp1 == NULL)
         exit(0);    // freeing the stacks before exiting
     ft_lstadd_front_int(lst1, temp1);
@@ -70,7 +70,7 @@ void push_b(t_int **lst1, t_int **lst2)
     
     if (ft_lstsize_int(*lst1) == 0)
         return ;
-    temp1 = ft_lstnew_int((*lst1)->content, (*lst1)->index);
+    temp1 = ft_lstnew_int((*lst1)->content, (*lst1)->simple);
     if (temp1 == NULL)
         exit(0);    // freeing the stacks before exiting
     ft_lstadd_front_int(lst2, temp1);

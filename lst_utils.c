@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_int	*ft_lstnew_int(int content, int index)
+t_int	*ft_lstnew_int(int content, int simple)
 {
     t_int	*new;
 
@@ -20,7 +20,7 @@ t_int	*ft_lstnew_int(int content, int index)
     if (new == NULL)
 	    return ((void *) 0);
     new->content = content;
-	new->index = index;
+	new->simple = simple;
     new->next = NULL;
     return (new);
 }

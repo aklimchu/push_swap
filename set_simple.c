@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_index.c                                        :+:      :+:    :+:   */
+/*   set_simple.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void    set_index(t_int **lst)
+void    set_simple(t_int **lst)
 {
     t_int   *temp1;
     t_int   *temp2;
@@ -29,7 +29,7 @@ void    set_index(t_int **lst)
                  count_smaller++;
             temp2 = temp2->next;
         }
-        temp1->index = count_smaller;
+        temp1->simple = count_smaller;
         temp1 = temp1->next;
     }
     

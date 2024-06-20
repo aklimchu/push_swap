@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdarg.h>
+# include <stdint.h>
 
 int	ft_printf(const char *format, ...);
 int	ft_putnbr_ui(unsigned int num, int count);
