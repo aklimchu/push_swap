@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   swap_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: andrei <andrei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:18:36 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/12 12:16:39 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:28:16 by andrei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void algo_3_case(t_int **lst1, t_int **lst2);
 
 void    algo_2(t_int **lst)
 {
@@ -18,34 +20,30 @@ void    algo_2(t_int **lst)
         swap_a(lst);
 }
 
-void    algo_3(t_int **lst)
+void    algo_3(t_int **lst1, t_int **lst2)
 {
-    if (a_is_sorted(*lst) == 0)
+    if (a_is_sorted(*lst1) == 0)
         return ;
-    if ((*lst)->content < (*lst)->next->content && (*lst)->next->content > (*lst)->next->next->content \
-        && (*lst)->content < (*lst)->next->next->content)
+    if ((*lst1)->content < (*lst1)->next->content && (*lst1)->next->content > (*lst1)->next->next->content \
+        && (*lst1)->content < (*lst1)->next->next->content)
+        algo_3_case(lst1, lst2);
+    if ((*lst1)->content > (*lst1)->next->content && (*lst1)->next->content < (*lst1)->next->next->content \
+        && (*lst1)->content < (*lst1)->next->next->content)
+        swap_a(lst1);
+    if ((*lst1)->content < (*lst1)->next->content && (*lst1)->next->content > (*lst1)->next->next->content \
+        && (*lst1)->content > (*lst1)->next->next->content)
     {
-        rotate_a(lst);
-        swap_a(lst);
-        r_rotate_a(lst);
+        rotate_a(lst1, lst2);
+        rotate_a(lst1, lst2);
     }
-    if ((*lst)->content > (*lst)->next->content && (*lst)->next->content < (*lst)->next->next->content \
-        && (*lst)->content < (*lst)->next->next->content)
-        swap_a(lst);
-    if ((*lst)->content < (*lst)->next->content && (*lst)->next->content > (*lst)->next->next->content \
-        && (*lst)->content > (*lst)->next->next->content)
+    if ((*lst1)->content > (*lst1)->next->content && (*lst1)->next->content < (*lst1)->next->next->content \
+        && (*lst1)->content > (*lst1)->next->next->content)
+        rotate_a(lst1, lst2);
+    if ((*lst1)->content > (*lst1)->next->content && (*lst1)->next->content > (*lst1)->next->next->content \
+        && (*lst1)->content > (*lst1)->next->next->content)
     {
-        rotate_a(lst);
-        rotate_a(lst);
-    }
-    if ((*lst)->content > (*lst)->next->content && (*lst)->next->content < (*lst)->next->next->content \
-        && (*lst)->content > (*lst)->next->next->content)
-        rotate_a(lst);
-    if ((*lst)->content > (*lst)->next->content && (*lst)->next->content > (*lst)->next->next->content \
-        && (*lst)->content > (*lst)->next->next->content)
-    {
-        swap_a(lst);
-        r_rotate_a(lst);
+        swap_a(lst1);
+        r_rotate_a(lst1, lst2);
     }
 }
 
@@ -54,23 +52,30 @@ void    algo_4(t_int **lst1, t_int **lst2)
     int     i;
     
     push_b(lst1, lst2);
-    algo_3(lst1);
+    algo_3(lst1, lst2);
     if ((*lst2)->content > (*lst1)->next->next->content)
     {
         push_a(lst1, lst2);
-        rotate_a(lst1);
+        rotate_a(lst1, lst2);
         return ;
     }
     i = 0;
     while ((*lst2)->content > (*lst1)->content)
     {
-        rotate_a(lst1);
+        rotate_a(lst1, lst2);
         i++;
     }
     push_a(lst1, lst2);
     while (i > 0)
     {
-        r_rotate_a(lst1);
+        r_rotate_a(lst1, lst2);
         i--;
     }
+}
+
+static void algo_3_case(t_int **lst1, t_int **lst2)
+{
+    rotate_a(lst1, lst2);
+    swap_a(lst1);
+    r_rotate_a(lst1, lst2);
 }

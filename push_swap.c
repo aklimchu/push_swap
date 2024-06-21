@@ -79,7 +79,9 @@ static int checknum(char *str)
             return(0);
         j++;
     }
-    if (ft_atoi_long(str) > INT_MAX || ft_atoi_long(str) < INT_MIN)  // overflow for long int?
+    if (j > 11)
+        return(0);
+    if (ft_atoi_long(str) > INT_MAX || ft_atoi_long(str) < INT_MIN)
         return(0);
     return(1);
 }
