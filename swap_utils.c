@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: andrei <andrei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:45:50 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/12 14:59:07 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:01:42 by andrei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,14 @@ void push_a(t_int **lst1, t_int **lst2)
         return ;
     temp1 = ft_lstnew_int((*lst2)->content, (*lst2)->simple);
     if (temp1 == NULL)
-        exit(0);    // freeing the stacks before exiting
+    {
+        free_stacks(lst1, lst2);
+        exit(0);
+    }
     ft_lstadd_front_int(lst1, temp1);
     temp2 = *lst2;
     temp3 = (*lst2)->next;
     free(temp2);
-    //free(temp2->content);
     *lst2 = temp3;
     ft_printf("pa\n");
 }
@@ -72,12 +74,14 @@ void push_b(t_int **lst1, t_int **lst2)
         return ;
     temp1 = ft_lstnew_int((*lst1)->content, (*lst1)->simple);
     if (temp1 == NULL)
-        exit(0);    // freeing the stacks before exiting
+    {
+        free_stacks(lst1, lst2);
+        exit(0);
+    }
     ft_lstadd_front_int(lst2, temp1);
     temp2 = *lst1;
     temp3 = (*lst1)->next;
     free(temp2);
-    //free(temp2->content);
     *lst1 = temp3;
     ft_printf("pb\n");
 }

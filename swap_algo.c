@@ -3,51 +3,78 @@
 /*                                                        :::      ::::::::   */
 /*   swap_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aklimchu <aklimchu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andrei <andrei@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:38:27 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/20 14:34:38 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:40:25 by andrei           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static void algo_options(int argc, t_int **lst1, t_int **lst2);
+
+static void stacks_fill(int argc, char  *argv[], t_int **lst1, t_int **lst2);
+
 void    swap_algo(int argc, char  *argv[])
 {
     t_int   *stack_a;
     t_int   *stack_b;
-    t_int   *new;
-    //t_int   *temp;  // delete
-    int     i;
-    int     new_num;
-
+    
     stack_a = (t_int *)malloc((argc - 1) * sizeof(t_int));   // sizeof (t_int *)?
+    if (stack_a == NULL)
+        exit(0);
     stack_b = (t_int *)malloc((argc - 1) * sizeof(t_int));
-    if (stack_a == NULL || stack_b == NULL)     // checking if some memory was allocated and freeing it
-        exit(0);        
+    if (stack_b == NULL) 
+    {
+        free(stack_a);
+        exit(0);
+    }        
     stack_a = NULL;
     stack_b = NULL;
+    stacks_fill(argc, argv, &stack_a, &stack_b);
+    algo_options(argc, &stack_a, &stack_b);
+}
+
+static void stacks_fill(int argc, char  *argv[], t_int **lst1, t_int **lst2)
+{
+    int     i;
+    int     new_num;
+    t_int   *new;
+
     i = 1;
     while (i < argc)
     {
         new_num = ft_atoi(argv[i]);
         new = ft_lstnew_int(new_num, 0);
-        ft_lstadd_back_int(&stack_a, new);
+        if (new == NULL)
+        {
+            free_stacks(lst1, lst2);
+            exit(0);
+        }
+        ft_lstadd_back_int(lst1, new);
         i++;
     }
-    if (a_is_sorted(stack_a) == 0)
-        exit(0);    //  freeing the memory
-    set_simple(&stack_a);
+}
+
+static void algo_options(int argc, t_int **lst1, t_int **lst2)
+{
+    if (a_is_sorted(*lst1) == 0)
+    {
+        free_stacks(lst1, lst2);
+        exit(0);
+    }
+    set_simple(lst1);
     if (argc == 3)
-        algo_2(&stack_a);
+        algo_2(lst1);
     if (argc == 4)
-        algo_3(&stack_a);
+        algo_3(lst1, lst2);
     if (argc == 5)
-        algo_4(&stack_a, &stack_b);
+        algo_4(lst1, lst2);
     if (argc == 6)
-        algo_5(&stack_a, &stack_b);
+        algo_5(lst1, lst2);
     if (argc >= 7)
-        algo_large(&stack_a, &stack_b);
+        algo_large(lst1, lst2);
     /*temp = stack_a;
     ft_printf("Stack a - simplees\n");
     while (temp)
@@ -67,6 +94,5 @@ void    swap_algo(int argc, char  *argv[])
         ft_printf("%d\n", stack_b->content);
         stack_b = stack_b->next;
     }*/
-    free(stack_a);
-    free(stack_b);
+    free_stacks(lst1, lst2);
 }
