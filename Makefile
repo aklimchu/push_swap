@@ -15,7 +15,7 @@ NAME		= push_swap
 LIBFT_DIR	= libft
 LIBFT_LIB	= $(LIBFT_DIR)/libft.a
 CC 			= cc
-CFLAGS		= -Wall -Wextra -Werror -I $(LIBFT_DIR)
+CFLAGS		= -Wall -Wextra -Werror -ggdb3 -I $(LIBFT_DIR)
 AR			= ar rcs
 RM			= rm -f
 

@@ -14,24 +14,24 @@
 
 t_int	*ft_lstnew_int(int content, int simple)
 {
-    t_int	*new;
+	t_int	*new;
 
-    new = (t_int *)malloc(sizeof(*new));
-    if (new == NULL)
-	    return ((void *) 0);
-    new->content = content;
+	new = (t_int *)malloc(sizeof(*new));
+	if (new == NULL)
+		return ((void *) 0);
+	new->content = content;
 	new->simple = simple;
-    new->next = NULL;
-    return (new);
+	new->next = NULL;
+	return (new);
 }
 
 void	ft_lstadd_front_int(t_int **lst, t_int *new)
 {
-	if (lst && new)
-	{
+	/*if (lst && new)
+	{*/
 		new->next = *lst;
 		*lst = new;
-	}
+	//}
 	return ;
 }
 
@@ -66,7 +66,7 @@ void	ft_lstadd_back_int(t_int **lst, t_int *new)
 {
 	t_int	*temp;
 
-	if ((!lst) || (!new))
+	if (/*(!lst) || */ (!new))
 		return ;
 	if (*lst == NULL)
 		*lst = new;
