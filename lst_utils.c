@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:40:03 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/12 14:56:11 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:51:28 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ t_int	*ft_lstnew_int(int content, int simple)
 
 void	ft_lstadd_front_int(t_int **lst, t_int *new)
 {
-	/*if (lst && new)
-	{*/
+	if (lst && new)
+	{
 		new->next = *lst;
 		*lst = new;
-	//}
+	}
 	return ;
 }
 
@@ -66,7 +66,7 @@ void	ft_lstadd_back_int(t_int **lst, t_int *new)
 {
 	t_int	*temp;
 
-	if (/*(!lst) || */ (!new))
+	if ((!lst) || (!new))
 		return ;
 	if (*lst == NULL)
 		*lst = new;

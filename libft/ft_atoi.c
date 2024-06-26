@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:39:51 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/05/31 13:21:34 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:48:07 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static const char	*whites(const char *str)
 
 int	ft_atoi(const char *str)
 {
-	int	res;
+	int			res;
 	int			neg;
 	long int	checkl;
 

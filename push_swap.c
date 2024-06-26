@@ -6,64 +6,77 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:39:05 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/05/31 10:39:06 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:05:46 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	checkinput(int argc, char *argv[]);
+static int	checkinput(char *argv[], int start);
+
+static int	checkinput_case(char *argv[], int start, int i);
 
 static int	checknum(char *str);
 
 int	push_swap(int argc, char *argv[])
 {
-// Should the program be able to take 1 string as an argument?
-//	if (argc < 2)
-//    exit(0);
-//	if (argc == 2)
-	/*if (argc == 2)
-		args = ft_split(argv[1], ' ');
+	char	**argv_new;
+	int		start;
+
+	start = 0;
+	if (argc < 2)
+		exit(0);
+	if (argc == 2)
+		argv_new = ft_split(argv[1], ' ');
 	else
 	{
-		i = 1;
-		args = argv;
-	}*/
-	if (checkinput(argc, argv) == 0)
+		argv_new = argv;
+		start = 1;
+	}
+	if (checkinput(argv_new, start) == 0)
 	{
 		write(2, "Error\n", 6);
+		if (argc == 2)
+			free_arr(argv_new);
 		exit(0);
 	}
-	if (argc < 3)
-		exit(0);
-	swap_algo(argc, argv);
+	swap_algo(argc, argv_new);
 	return (0);
 }
 
-static int	checkinput(int argc, char *argv[])
+static int	checkinput(char *argv[], int start)
 {
 	int		i;
-	int		j;
 
-	i = 1;
-	while (i < argc)
+	i = start;
+	if (!argv[i])
+		return (0);
+	while (argv[i])
 	{
 		if (checknum(argv[i]) == 0)
 			return (0);
 		i++;
 	}
-	i = 1;
-	j = 2;
-	while (i < argc)
+	i = start;
+	while (argv[i])
 	{
-		while (j < argc)
-		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]) && i != j)
-				return (0);
-			j++;
-		}
+		if (checkinput_case(argv, start, i) == 0)
+			return (0);
 		i++;
-		j = 2;
+	}
+	return (1);
+}
+
+static int	checkinput_case(char *argv[], int start, int i)
+{
+	int		j;
+
+	j = start + 1;
+	while (argv[j])
+	{
+		if (ft_atoi(argv[i]) == ft_atoi(argv[j]) && i != j)
+			return (0);
+		j++;
 	}
 	return (1);
 }

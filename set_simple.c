@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:27:30 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/12 14:49:45 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:31:23 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int	get_min(t_int *lst)
 {
 	int		num_min;
 
-	num_min = lst->content;
+	num_min = lst->simple;
 	while (lst->next)
 	{
-		if (lst->content > lst->next->content)
-			num_min = lst->next->content;
+		if (lst->simple > lst->next->simple)
+			num_min = lst->next->simple;
 		lst = lst->next;
 	}
 	return (num_min);
