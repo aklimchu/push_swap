@@ -3,45 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   swap_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrei <andrei@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:18:36 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/21 15:28:16 by andrei           ###   ########.fr       */
+/*   Updated: 2024/06/26 14:21:50 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	algo_3_case(t_int **lst1, t_int **lst2);
+static void	algo_3_case(t_int **lst1);
 
-static void	algo_3_case_2(t_int **lst1, t_int **lst2);
+static void	algo_3_case_2(t_int **lst1);
 
 void	algo_2(t_int **lst)
 {
-	if ((*lst)->content > (*lst)->next->content)
+	if ((*lst)->simple > (*lst)->next->simple)
 		swap_a(lst);
 }
 
-void	algo_3(t_int **lst1, t_int **lst2)
+void	algo_3(t_int **lst1)
 {
 	if (a_is_sorted(*lst1) == 0)
 		return ;
-	if ((*lst1)->content < (*lst1)->next->content && \
-		(*lst1)->next->content > (*lst1)->next->next->content && \
-		(*lst1)->content < (*lst1)->next->next->content)
-		algo_3_case(lst1, lst2);
-	if ((*lst1)->content > (*lst1)->next->content && \
-		(*lst1)->next->content < (*lst1)->next->next->content && \
-		(*lst1)->content < (*lst1)->next->next->content)
+	if ((*lst1)->simple < (*lst1)->next->simple && \
+		(*lst1)->next->simple > (*lst1)->next->next->simple && \
+		(*lst1)->simple < (*lst1)->next->next->simple)
+		algo_3_case(lst1);
+	if ((*lst1)->simple > (*lst1)->next->simple && \
+		(*lst1)->next->simple < (*lst1)->next->next->simple && \
+		(*lst1)->simple < (*lst1)->next->next->simple)
 		swap_a(lst1);
-	if ((*lst1)->content < (*lst1)->next->content && \
-		(*lst1)->next->content > (*lst1)->next->next->content && \
-		(*lst1)->content > (*lst1)->next->next->content)
+	if ((*lst1)->simple < (*lst1)->next->simple && \
+		(*lst1)->next->simple > (*lst1)->next->next->simple && \
+		(*lst1)->simple > (*lst1)->next->next->simple)
 	{
-		rotate_a(lst1, lst2);
-		rotate_a(lst1, lst2);
+		rotate_a(lst1);
+		rotate_a(lst1);
 	}
-	algo_3_case_2(lst1, lst2);
+	algo_3_case_2(lst1);
 }
 
 void	algo_4(t_int **lst1, t_int **lst2)
@@ -49,45 +49,45 @@ void	algo_4(t_int **lst1, t_int **lst2)
 	int		i;
 
 	push_b(lst1, lst2);
-	algo_3(lst1, lst2);
-	if ((*lst2)->content > (*lst1)->next->next->content)
+	algo_3(lst1);
+	if ((*lst2)->simple > (*lst1)->next->next->simple)
 	{
 		push_a(lst1, lst2);
-		rotate_a(lst1, lst2);
+		rotate_a(lst1);
 		return ;
 	}
 	i = 0;
-	while ((*lst2)->content > (*lst1)->content)
+	while ((*lst2)->simple > (*lst1)->simple)
 	{
-		rotate_a(lst1, lst2);
+		rotate_a(lst1);
 		i++;
 	}
 	push_a(lst1, lst2);
 	while (i > 0)
 	{
-		r_rotate_a(lst1, lst2);
+		r_rotate_a(lst1);
 		i--;
 	}
 }
 
-static void	algo_3_case(t_int **lst1, t_int **lst2)
+static void	algo_3_case(t_int **lst1)
 {
-	rotate_a(lst1, lst2);
+	rotate_a(lst1);
 	swap_a(lst1);
-	r_rotate_a(lst1, lst2);
+	r_rotate_a(lst1);
 }
 
-static void	algo_3_case_2(t_int **lst1, t_int **lst2)
+static void	algo_3_case_2(t_int **lst1)
 {
-	if ((*lst1)->content > (*lst1)->next->content && \
-		(*lst1)->next->content < (*lst1)->next->next->content && \
-		(*lst1)->content > (*lst1)->next->next->content)
-		rotate_a(lst1, lst2);
-	if ((*lst1)->content > (*lst1)->next->content && \
-		(*lst1)->next->content > (*lst1)->next->next->content && \
-		(*lst1)->content > (*lst1)->next->next->content)
+	if ((*lst1)->simple > (*lst1)->next->simple && \
+		(*lst1)->next->simple < (*lst1)->next->next->simple && \
+		(*lst1)->simple > (*lst1)->next->next->simple)
+		rotate_a(lst1);
+	if ((*lst1)->simple > (*lst1)->next->simple && \
+		(*lst1)->next->simple > (*lst1)->next->next->simple && \
+		(*lst1)->simple > (*lst1)->next->next->simple)
 	{
 		swap_a(lst1);
-		r_rotate_a(lst1, lst2);
+		r_rotate_a(lst1);
 	}
 }

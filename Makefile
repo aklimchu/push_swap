@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: andrei <andrei@student.42.fr>              +#+  +:+       +#+         #
+#    By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 11:18:05 by aklimchu          #+#    #+#              #
-#    Updated: 2024/06/21 14:06:48 by andrei           ###   ########.fr        #
+#    Updated: 2024/06/26 14:51:37 by aklimchu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC 		= push_swap.c ft_atoi_long.c \
 				swap_utils_2.c lst_utils.c \
 				swap_small.c main.c \
 				set_simple.c swap_5.c \
-				swap_large.c free_stacks.c
+				swap_large.c free_memory.c
 OBJ 		= $(SRC:.c=.o)
 INCLUDE		= -I "./"
 

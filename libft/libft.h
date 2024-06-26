@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:43:20 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/05/31 13:18:12 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/26 13:46:50 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 # include <stdarg.h>
 # include <stdint.h>
 
-int	ft_printf(const char *format, ...);
-int	ft_putnbr_ui(unsigned int num, int count);
-int	ft_putptr(void *ptr, int count);
-int	ft_puthex(int num, char x_case, int count);
-int	ft_checkchar(char format);
-int	ft_putchar(char c, int count);
-int	ft_putstr(char *str, int count);
+int		ft_printf(const char *format, ...);
+int		ft_putnbr_ui(unsigned int num, int count);
+int		ft_putptr(void *ptr, int count);
+int		ft_puthex(int num, char x_case, int count);
+int		ft_checkchar(char format);
+int		ft_putchar(char c, int count);
+int		ft_putstr(char *str, int count);
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024

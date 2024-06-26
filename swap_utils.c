@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrei <andrei@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:45:50 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/21 15:01:42 by andrei           ###   ########.fr       */
+/*   Updated: 2024/06/26 15:07:12 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	push_a(t_int **lst1, t_int **lst2)
 	t_int	*temp1;
 	t_int	*temp2;
 	t_int	*temp3;
-	
+
 	if (ft_lstsize_int(*lst2) == 0)
 		return ;
 	temp1 = ft_lstnew_int((*lst2)->content, (*lst2)->simple);
@@ -69,7 +69,7 @@ void	push_b(t_int **lst1, t_int **lst2)
 	t_int	*temp1;
 	t_int	*temp2;
 	t_int	*temp3;
-	
+
 	if (ft_lstsize_int(*lst1) == 0)
 		return ;
 	temp1 = ft_lstnew_int((*lst1)->content, (*lst1)->simple);
@@ -90,8 +90,8 @@ int	a_is_sorted(t_int *lst)
 {
 	while (lst->next)
 	{
-		if (lst->content > lst->next->content)
-			return(-1);
+		if (lst->simple > lst->next->simple)
+			return (-1);
 		lst = lst->next;
 	}
 	return (0);
