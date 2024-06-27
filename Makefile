@@ -6,7 +6,7 @@
 #    By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 11:18:05 by aklimchu          #+#    #+#              #
-#    Updated: 2024/06/26 14:51:37 by aklimchu         ###   ########.fr        #
+#    Updated: 2024/06/27 08:30:48 by aklimchu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		= push_swap
 LIBFT_DIR	= libft
 LIBFT_LIB	= $(LIBFT_DIR)/libft.a
 CC 			= cc
-CFLAGS		= -Wall -Wextra -Werror -ggdb3 -I $(LIBFT_DIR)
+CFLAGS		= -Wall -Wextra -Werror -I $(LIBFT_DIR)
 AR			= ar rcs
 RM			= rm -f
 
