@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:02:40 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/26 14:22:14 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/28 09:57:22 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	b_to_a_first_number(t_int **lst1, t_int **lst2, int i);
 static int	b_to_a_second_number(t_int **lst1, t_int **lst2, int i);
 
 static int	b_to_a_second_number_cases(t_int **lst1, t_int **lst2, int i);
+
+// the function uses the algorithm to sort the stack containing 5 elements
 
 void	algo_5(t_int **lst1, t_int **lst2)
 {

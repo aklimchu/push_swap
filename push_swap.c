@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:39:05 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/26 15:05:46 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/28 10:51:54 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ static int	checkinput(char *argv[], int start);
 static int	checkinput_case(char *argv[], int start, int i);
 
 static int	checknum(char *str);
+
+//function takes arguments, checks the input and
+// then passes them for futher processing
 
 int	push_swap(int argc, char *argv[])
 {
@@ -43,6 +46,8 @@ int	push_swap(int argc, char *argv[])
 	swap_algo(argc, argv_new);
 	return (0);
 }
+
+// the function is checking if the input is correct
 
 static int	checkinput(char *argv[], int start)
 {
@@ -80,6 +85,8 @@ static int	checkinput_case(char *argv[], int start, int i)
 	}
 	return (1);
 }
+
+// the function is checking if passed argument is integer
 
 static int	checknum(char *str)
 {

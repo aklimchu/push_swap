@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 08:38:27 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/26 15:06:54 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/28 10:52:47 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 static void	algo_options(int argc, t_int **lst1, t_int **lst2);
 
 static int	stacks_fill(int argc, char *argv[], t_int **lst1, t_int **lst2);
+
+// the function allocates memory for 2 stacks and passes them
+// to helper functions to fill the stack a, to perform
+// the sorting operations on the stacks and to free them
 
 void	swap_algo(int argc, char *argv[])
 {
@@ -39,6 +43,9 @@ void	swap_algo(int argc, char *argv[])
 	algo_options(argc_new, stack_a, stack_b);
 	free_stacks(stack_a, stack_b);
 }
+
+// the function is filling the stack a (linked list)
+// with arguments provided by user
 
 static int	stacks_fill(int argc, char *argv[], t_int **lst1, t_int **lst2)
 {
@@ -65,6 +72,10 @@ static int	stacks_fill(int argc, char *argv[], t_int **lst1, t_int **lst2)
 		return (i + 1);
 	return (argc);
 }
+
+// the function is passing the stack(s) to chosen
+// algorithm after adding simplified indexes
+// to every node and checking if the stack a is already sorted
 
 static void	algo_options(int argc, t_int **lst1, t_int **lst2)
 {

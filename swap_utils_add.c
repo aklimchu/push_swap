@@ -6,11 +6,14 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:13:22 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/27 08:40:53 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/28 10:54:00 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// the function rotates stack a (moves element
+// on top of stack to the bottom of stack)
 
 void	rotate_a(t_int **lst1)
 {
@@ -30,6 +33,9 @@ void	rotate_a(t_int **lst1)
 	ft_printf("ra\n");
 }
 
+// the function rotates stack b (moves element
+// on top of stack to the bottom of stack)
+
 void	rotate_b(t_int **lst1)
 {
 	t_int	*temp1;
@@ -47,6 +53,8 @@ void	rotate_b(t_int **lst1)
 	temp1->simple = first_simp;
 	ft_printf("rb\n");
 }
+
+// the function reverse rotates stack a (moves last element on top of stack)
 
 void	r_rotate_a(t_int **lst1)
 {
@@ -74,6 +82,8 @@ void	r_rotate_a(t_int **lst1)
 	(*lst1)->simple = last_simp;
 	ft_printf("rra\n");
 }
+
+// the function reverse rotates stack b (moves last element on top of stack)
 
 void	r_rotate_b(t_int **lst1)
 {

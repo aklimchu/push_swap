@@ -6,11 +6,13 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:40:03 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/26 13:51:28 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/28 10:51:10 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// the function creates a new node
 
 t_int	*ft_lstnew_int(int content, int simple)
 {
@@ -25,6 +27,8 @@ t_int	*ft_lstnew_int(int content, int simple)
 	return (new);
 }
 
+// the function adds a node on the top of linked list
+
 void	ft_lstadd_front_int(t_int **lst, t_int *new)
 {
 	if (lst && new)
@@ -34,6 +38,8 @@ void	ft_lstadd_front_int(t_int **lst, t_int *new)
 	}
 	return ;
 }
+
+// the function returns a pointer to the last node in the linked list
 
 t_int	*ft_lstlast_int(t_int *lst)
 {
@@ -49,6 +55,8 @@ t_int	*ft_lstlast_int(t_int *lst)
 	return (temp);
 }
 
+// the function returns the size of the linked list
+
 int	ft_lstsize_int(t_int *lst)
 {
 	int	i;	
@@ -61,6 +69,8 @@ int	ft_lstsize_int(t_int *lst)
 	}
 	return (i);
 }
+
+// the function adds a node to the end of linked list
 
 void	ft_lstadd_back_int(t_int **lst, t_int *new)
 {

@@ -6,7 +6,7 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:18:36 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/26 14:21:50 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/28 10:42:51 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@ static void	algo_3_case(t_int **lst1);
 
 static void	algo_3_case_2(t_int **lst1);
 
+// the function uses the algorithm to sort the stack containing 2 elements
+
 void	algo_2(t_int **lst)
 {
 	if ((*lst)->simple > (*lst)->next->simple)
 		swap_a(lst);
 }
+
+// the function uses the algorithm to sort the stack containing 3 elements
 
 void	algo_3(t_int **lst1)
 {
@@ -43,6 +47,8 @@ void	algo_3(t_int **lst1)
 	}
 	algo_3_case_2(lst1);
 }
+
+// the function uses the algorithm to sort the stack containing 4 elements
 
 void	algo_4(t_int **lst1, t_int **lst2)
 {
