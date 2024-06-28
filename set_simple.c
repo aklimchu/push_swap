@@ -6,11 +6,13 @@
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:27:30 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/26 14:31:23 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/28 09:54:47 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// the function converts numbers provided by user to simplified indexes
 
 void	set_simple(t_int **lst)
 {
@@ -33,6 +35,8 @@ void	set_simple(t_int **lst)
 		temp1 = temp1->next;
 	}
 }
+
+// the function finds the smallest simplified index from the list and returns it
 
 int	get_min(t_int *lst)
 {

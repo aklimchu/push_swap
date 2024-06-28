@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stacks.c                                      :+:      :+:    :+:   */
+/*   free_memory.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aklimchu <aklimchu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 10:45:50 by aklimchu          #+#    #+#             */
-/*   Updated: 2024/06/26 14:50:16 by aklimchu         ###   ########.fr       */
+/*   Updated: 2024/06/28 10:11:04 by aklimchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// the function frees the memory allocated to stacks a and b
 
 void	free_stacks(t_int **lst1, t_int **lst2)
 {
@@ -33,6 +35,9 @@ void	free_stacks(t_int **lst1, t_int **lst2)
 	free(lst2);
 	lst2 = NULL;
 }
+
+// the function frees the memory allocated to array
+// (array is used for storing arguments if argc = 2)
 
 void	free_arr(char *arr[])
 {
