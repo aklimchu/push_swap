@@ -45,8 +45,14 @@ cd push_swap
 ## Running the tests
 
 <!-- start:code block -->
+#### Create the library with Makefile
+make
+
 #### Test the function with your own arguments
 $>ARG="4 67 3 87 23"; ./push_swap $ARG
+
+#### Clean the object files and library file
+make fclean
 
 <!-- end:code block -->
 
