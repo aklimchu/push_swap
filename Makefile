@@ -27,7 +27,7 @@ SRC 		= push_swap.c ft_atoi_long.c \
 				set_simple.c swap_5.c \
 				swap_large.c free_memory.c
 OBJ 		= $(SRC:.c=.o)
-INCLUDE		= -I "./"
+INCLUDE		= -I "./" 
 
 # Rules
 all:		$(NAME)
